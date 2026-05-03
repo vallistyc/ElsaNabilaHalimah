@@ -48,14 +48,14 @@ const Hero = () => {
 
       {/* 🟡 IMAGE (ABSOLUTE BOTTOM) */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/3 
-                      w-[550px] sm:w-[380px] md:w-[420px] pointer-events-none">
+                      w-full sm:w-1/2 md:w-1/3 lg:w-1/4 pointer-events-none">
 
         <div className="relative">
 
           <img
             src={heroImg}
             alt="Elsa"
-            className="w-full h-auto object-contain 
+            className="w-full h-auto object-cover 
                        drop-shadow-[0_30px_60px_rgba(0,0,0,0.25)]"
           />
         </div>
