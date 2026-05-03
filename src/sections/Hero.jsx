@@ -3,7 +3,7 @@ import heroImg from "../assets/heroicon.png";
 
 const Hero = () => {
   return (
-    <section className="bg-[#292929] relative w-full min-h-screen overflow-hidden flex items-start justify-center pt-20">
+    <section className="bg-[#292929] relative w-full min-h-fit overflow-hidden flex items-start justify-center pt-20">
 
       {/* 🔥 Background */}
       <div className="absolute inset-0 -z-10">
@@ -12,9 +12,9 @@ const Hero = () => {
       </div>
 
       {/* CONTENT */}
-      <div className="max-w-6xl w-full px-4 py-10 
+      <div className="max-w-6xl w-full px-4 pt-10 
                       flex flex-col items-start text-left 
-                      gap-6 pb-[260px]">
+                      gap-6 ">
 
         {/* ✨ TEXT */}
         <h1 className="text-white font-outfit font-bold leading-[0.95] tracking-tight 
@@ -44,21 +44,20 @@ const Hero = () => {
                           group-hover:translate-y-0 transition duration-500"></div>
         </button>
 
+        {/* 🟡 IMAGE (ABSOLUTE BOTTOM) */}
+        <div className="relative bottom-0 left-1/2 -translate-x-1/3 
+                        h-full sm:w-1/2 md:w-1/3 lg:w-1/4 pointer-events-none">
+
+          <div className="relative">
+
+            <img
+              src={heroImg}
+              alt="Elsa"
+              className="w-auto h-full object-cover 
+                        drop-shadow-[0_30px_60px_rgba(0,0,0,0.25)]"
+            />
+          </div>
       </div>
-
-      {/* 🟡 IMAGE (ABSOLUTE BOTTOM) */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/3 
-                      w-full sm:w-1/2 md:w-1/3 lg:w-1/4 pointer-events-none">
-
-        <div className="relative">
-
-          <img
-            src={heroImg}
-            alt="Elsa"
-            className="w-full h-auto object-cover 
-                       drop-shadow-[0_30px_60px_rgba(0,0,0,0.25)]"
-          />
-        </div>
       </div>
    
     </section>
