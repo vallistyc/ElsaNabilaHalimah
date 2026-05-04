@@ -272,7 +272,7 @@ const Footer = () => {
             Built with 💚 by{" "}
             <a href="https://setyasa.com" target="_blank" rel="noopener noreferrer"
               className="footer-credit-link">
-              Setyasa Web Studio
+              Setyasa Studio
             </a>
           </span>
         </div>

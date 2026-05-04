@@ -7,8 +7,8 @@ const Hero = () => {
 
       {/* 🔥 Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[-120px] left-[-120px] w-[350px] h-[350px] bg-yellow-300/30 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[-150px] right-[-150px] w-[400px] h-[400px] bg-green-400/30 blur-[140px] rounded-full"></div>
+        <div className="absolute -top-30 -left-30 w-87.5 h-87.5 bg-yellow-300/30 blur-[120px] rounded-full"></div>
+        <div className="absolute -bottom-37.5 -right-37.5 w-100 h-100 bg-green-400/30 blur-[140px] rounded-full"></div>
       </div>
 
       {/* CONTENT */}
