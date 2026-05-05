@@ -270,7 +270,7 @@ const Footer = () => {
           <span className="footer-copy">© {year} Elsa Nala. All rights reserved.</span>
           <span className="footer-credit">
             Built with 💚 by{" "}
-            <a href="https://setyasa.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://instagram.com/setyasa.studio" target="_blank" rel="noopener noreferrer"
               className="footer-credit-link">
               Setyasa Studio
             </a>
