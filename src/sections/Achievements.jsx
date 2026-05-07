@@ -101,7 +101,7 @@ const PageContent = ({ data }) => (
       borderRadius: "0.75rem", overflow: "hidden",
       marginBottom: "1rem", flexShrink: 0,
     }}>
-      <img src={data.image} alt={data.title}
+      <img src={data.image} alt={`${data.title} achievement`} loading="lazy"
         style={{ width: "100%", height: "100%", objectFit: "cover" }} />
     </div>
     <h3 style={{
@@ -220,6 +220,7 @@ const Achievements = () => {
 
   return (
     <section
+      id="achievements"
       ref={sectionRef}
       style={{
         position: "relative",

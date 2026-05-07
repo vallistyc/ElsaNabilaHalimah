@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import service1Img from "../assets/service1.jpg";
 import service2Img from "../assets/service2.jpg";
 import service3Img from "../assets/service3.jpg";
@@ -16,8 +16,9 @@ const ServiceCard = ({ image, title, tags }) => {
       <div className="w-[75px] h-[75px] rounded-full overflow-hidden border border-[#0E8748] flex-shrink-0">
         <img 
           src={image} 
-          alt={title} 
+          alt={`${title} service by Elsa Nala`} 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
       </div>
 
@@ -49,12 +50,70 @@ const ServiceCard = ({ image, title, tags }) => {
 
 // 🔹 Main Section
 const Services = () => {
+  const sectionRef = useRef(null);
+  const [headingVisible, setHeadingVisible] = useState(false);
+  const headingText = "My Services";
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHeadingVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full bg-[#292929] px-5 py-12 flex flex-col items-center gap-6">
+    <section id="services" ref={sectionRef} className="w-full bg-[#292929] px-5 py-12 flex flex-col items-center gap-6 scroll-mt-20">
+      <style>{`
+        .services-heading-reveal {
+          display: inline-block;
+          white-space: nowrap;
+        }
+
+        .services-heading-letter {
+          display: inline-block;
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        .services-heading-reveal.is-visible .services-heading-letter {
+          animation: servicesHeadingLetterIn 0.35s ease forwards;
+          animation-delay: calc(var(--letter-index) * 0.055s);
+        }
+
+        @keyframes servicesHeadingLetterIn {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
 
       {/* TITLE */}
-      <h2 className="text-[#38DD88] text-[26px] font-medium">
-        My Services
+      <h2 className="text-[#38DD88] text-[26px] font-medium min-h-[2rem]">
+        <span className={`services-heading-reveal ${headingVisible ? "is-visible" : ""}`} aria-label={headingText}>
+          {headingText.split("").map((char, i) => (
+            <span
+              key={`${char}-${i}`}
+              aria-hidden="true"
+              className="services-heading-letter"
+              style={{ "--letter-index": i }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </span>
       </h2>
 
       {/* LIST */}

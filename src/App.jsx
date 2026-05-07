@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -13,16 +10,18 @@ import CtaAndFooter from './sections/CtaAndFooter'
 function App() {
   return (
     <>
-    <div className='bg-[#292929]'>
-      <Navbar/>
-      <Hero/>
-      <About/>
-      <Service/>
-      <Experiences/>
-      <Achievements/>
-      <Projects/>
-      <CtaAndFooter/>
-    </div>
+      <div className='bg-[#292929]'>
+        <Navbar/>
+        <main>
+          <Hero/>
+          <About/>
+          <Service/>
+          <Experiences/>
+          <Achievements/>
+          <Projects/>
+          <CtaAndFooter/>
+        </main>
+      </div>
     </>
   )
 }

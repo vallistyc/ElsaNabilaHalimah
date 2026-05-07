@@ -1,58 +1,59 @@
 import React, { useRef, useEffect, useState } from "react";
+import PlaceholderImg from "../assets/placeholderimg.jpg";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 // Ganti src image dengan import aktual dari ../assets/
 const projects = [
   {
     id: "01",
-    title: "Elsa Bluri",
-    image: "/assets/project1.jpg", // ganti dengan import img
+    title: "MC di Expo Campus SMAN 1 Paciran 2026",
+    image: PlaceholderImg,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.",
     meta: {
-      tempat: "Surabaya, ID",
-      date: "Mar 2025",
-      promotor: "Setyasa Studio",
-      audience: "Profesional",
+      tempat: "Paciran",
+      date: "Jan 2025",
+      promotor: "IKASMAPA",
+      audience: "Siswa SMA",
     },
   },
   {
     id: "02",
-    title: "Portfolio Ahmad",
-    image: "/assets/project2.jpg",
+    title: "Pemateri di UINSA Public Speaking Club",
+    image: PlaceholderImg,
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.",
     meta: {
-      tempat: "Lamongan, ID",
+      tempat: "Surabaya",
       date: "Jan 2025",
-      promotor: "Freelance",
+      promotor: "UPS",
       audience: "Mahasiswa",
     },
   },
   {
     id: "03",
-    title: "Raisa Music",
-    image: "/assets/project3.jpg",
+    title: "Pemateri di Diklat Paskibra SMAN 1 Paciran",
+    image: PlaceholderImg,
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
     meta: {
-      tempat: "Jakarta, ID",
+      tempat: "Lamongan",
       date: "Nov 2024",
-      promotor: "Indie Label",
-      audience: "Entertainer",
+      promotor: "PASPERAPA",
+      audience: "Anggota PASPERAPA",
     },
   },
   {
     id: "04",
-    title: "Studio Visi",
-    image: "/assets/project4.jpg",
+    title: "Moderator di Seminar Nasional UINSA 2025",
+    image: PlaceholderImg,
     description:
       "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente.",
     meta: {
-      tempat: "Bandung, ID",
-      date: "Sep 2024",
-      promotor: "Setyasa Studio",
-      audience: "Fotografer",
+      tempat: "Surabaya",
+      date: "Sep 2025",
+      promotor: "UINSA TV",
+      audience: "Mahasiswa, Dosen",
     },
   },
 ];
@@ -90,9 +91,13 @@ const ProjectCard = ({ project, index, total, progress }) => {
         {/* ── IMAGE ── */}
         <div className="card-image-wrapper">
           <img
-            src={project.image}
-            alt={project.title}
+            src={project.image || PlaceholderImg}
+            alt={`${project.title} project`}
             className="card-image"
+            loading="lazy"
+            onError={(event) => {
+              event.currentTarget.src = PlaceholderImg;
+            }}
           />
           {/* Overlay number */}
           <div className="card-number">({project.id})</div>
@@ -148,6 +153,7 @@ const Projects = () => {
         .projects-section {
           position: relative;
           background: #292929;
+          scroll-margin-top: 5rem;
           /* tinggi virtual: 1 viewport per card + 1 breathing room */
           height: ${(projects.length + 1) * 100}vh;
         }
@@ -402,7 +408,7 @@ const Projects = () => {
         }
       `}</style>
 
-      <section ref={sectionRef} className="projects-section">
+      <section id="projects" ref={sectionRef} className="projects-section">
         <div className="projects-sticky">
 
           {/* ── SECTION HEADER ── */}

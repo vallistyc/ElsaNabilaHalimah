@@ -102,6 +102,7 @@ const CtaSection = () => {
 
   return (
     <section
+      id="contact"
       ref={sectionRef}
       className="cta-section"
       onMouseMove={handleMouseMove}
@@ -143,7 +144,7 @@ const CtaSection = () => {
         </h2>
 
         <p className="cta-sub">
-          Butuh MC, moderator, atau public speaker buat acara lo?
+          Butuh MC, moderator, atau public speaker buat acara kamu?
           Chat langsung aja — no ribet, no formal, enjoy saja. ✨
         </p>
 
@@ -295,6 +296,7 @@ const Styles = () => (
       overflow: hidden;
       cursor: none;
       font-family: 'DM Sans', sans-serif;
+      scroll-margin-top: 5rem;
     }
 
     /* Cursor */
